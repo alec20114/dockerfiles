@@ -42,7 +42,7 @@ if [ -e /config/shares.conf ] && [ -e /config/users.conf ]; then
             setfacl -R -m u:$user:rx ${FOLDER}
             setfacl -R -m default:u:$user:rx ${FOLDER}
         done
-        if [ "${WRITE_USERS}" != "" ] && [ "${READ_USERS}" != "" ];then
+        if [[ "${WRITE_USERS}" != ""  &&  "${READ_USERS}" != "" ]]; then
             LIST_USERS="${WRITE_USERS},${READ_USERS}"
         elif [ "${WRITE_USERS}" == "" ];then
             LIST_USERS="${READ_USERS}"
